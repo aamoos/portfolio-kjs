@@ -31,7 +31,7 @@
             </v-col>
             <v-col cols="12" md="5" class="text-center">
               <v-avatar size="180">
-                <v-img src="./assets/img/me.JPG" alt="Profile" cover />
+                <v-img src="/assets/img/me.JPG" alt="Profile" cover />
               </v-avatar>
             </v-col>
           </v-row>
