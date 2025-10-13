@@ -1,6 +1,6 @@
 ﻿<template>
   <v-app>
-    <v-app-bar elevation="0" color="transparent" class="px-4">
+    <v-app-bar elevation="0" color="transparent" class="px-4 app-header">
       <v-app-bar-title class="font-weight-bold">{{ name }} 포트폴리오</v-app-bar-title>
       <v-spacer />
       <v-btn variant="text" @click="scrollTo('hero')">홈</v-btn>
@@ -13,9 +13,9 @@
       <v-btn class="ml-2" icon="mdi-theme-light-dark" @click="toggleTheme" :title="isDark ? '라이트 모드' : '다크 모드'" />
     </v-app-bar>
 
-    <v-main>
+    <v-main class="app-main">
       <!-- Hero -->
-      <section :id="ids.hero" class="py-16 py-md-24">
+      <section :id="ids.hero" class="hero-section py-16 py-md-24">
         <v-container>
           <v-row align="center">
             <v-col cols="12" md="7">
@@ -835,8 +835,111 @@ function toggleTheme() {
 </script>
 
 <style scoped>
+/* App background: subtle gradient + grid, theme-aware */
+.app-main {
+  min-height: 100%;
+  background-color: rgb(var(--v-theme-background));
+  background-image:
+    radial-gradient(1200px 1200px at -10% -10%, rgba(var(--v-theme-primary), 0.08), transparent 60%),
+    radial-gradient(1000px 1000px at 110% -10%, rgba(var(--v-theme-accent), 0.07), transparent 55%),
+    radial-gradient(800px 800px at 50% 120%, rgba(var(--v-theme-secondary), 0.06), transparent 60%),
+    repeating-linear-gradient(0deg, transparent, transparent 24px, rgba(var(--v-theme-on-surface), 0.03) 25px),
+    repeating-linear-gradient(90deg, transparent, transparent 24px, rgba(var(--v-theme-on-surface), 0.03) 25px);
+  background-blend-mode: screen, screen, multiply, normal, normal;
+}
+
+/* Slightly stronger overlays in dark mode for contrast */
+.v-theme--dark .app-main {
+  background-image:
+    radial-gradient(1200px 1200px at -10% -10%, rgba(var(--v-theme-primary), 0.12), transparent 60%),
+    radial-gradient(1000px 1000px at 110% -10%, rgba(var(--v-theme-accent), 0.10), transparent 55%),
+    radial-gradient(800px 800px at 50% 120%, rgba(var(--v-theme-secondary), 0.08), transparent 60%),
+    repeating-linear-gradient(0deg, transparent, transparent 24px, rgba(var(--v-theme-on-surface), 0.06) 25px),
+    repeating-linear-gradient(90deg, transparent, transparent 24px, rgba(var(--v-theme-on-surface), 0.06) 25px);
+  background-blend-mode: screen, screen, normal, normal, normal;
+}
 section {
   scroll-margin-top: 72px;
 }
 .preline { white-space: pre-line; }
+</style>
+<style scoped>
+/* Header: glass background + stronger text for readability */
+.app-header {
+  /* keep it subtle but readable over imagery */
+  background-color: rgba(var(--v-theme-surface), 0.75);
+  backdrop-filter: saturate(120%) blur(8px);
+  -webkit-backdrop-filter: saturate(120%) blur(8px);
+  border-bottom: 1px solid rgba(var(--v-theme-on-surface), 0.06);
+}
+.app-header .v-app-bar-title,
+.app-header .v-btn,
+.app-header .v-btn .v-btn__content {
+  color: rgb(var(--v-theme-on-surface));
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+.v-theme--dark .app-header {
+  background-color: rgba(var(--v-theme-surface), 0.68);
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Hero: bold cover image with gradient overlay and subtle parallax */
+.hero-section {
+  position: relative;
+  background-image:
+    linear-gradient(90deg, rgba(var(--v-theme-background), 0.70), rgba(var(--v-theme-background), 0.25)),
+    url('/assets/img/bg-hero.jpg');
+  background-size: cover;
+  /* Focus a bit higher to prevent key subject being cropped */
+  background-position: 50% 30%;
+  background-attachment: fixed;
+  border-radius: 16px;
+  overflow: hidden;
+  /* Keep a consistent canvas so cover doesn't over-crop */
+  min-height: clamp(420px, 70vh, 880px);
+}
+.v-theme--dark .hero-section {
+  background-image:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.70), rgba(0, 0, 0, 0.35)),
+    url('/assets/img/bg-hero.jpg');
+}
+
+/* Avoid fixed background quirks and harsh cropping on small screens */
+@media (max-width: 960px) {
+  .hero-section {
+    background-attachment: scroll;
+    background-position: 50% 35%;
+  }
+}
+
+/* Make global background more visible */
+.app-main {
+  background-image:
+    radial-gradient(1200px 1200px at -10% -10%, rgba(var(--v-theme-primary), 0.14), transparent 60%),
+    radial-gradient(1000px 1000px at 110% -10%, rgba(var(--v-theme-accent), 0.12), transparent 55%),
+    radial-gradient(800px 800px at 50% 120%, rgba(var(--v-theme-secondary), 0.10), transparent 60%),
+    repeating-linear-gradient(0deg, transparent, transparent 24px, rgba(var(--v-theme-on-surface), 0.06) 25px),
+    repeating-linear-gradient(90deg, transparent, transparent 24px, rgba(var(--v-theme-on-surface), 0.06) 25px);
+}
+.v-theme--dark .app-main {
+  background-image:
+    radial-gradient(1200px 1200px at -10% -10%, rgba(var(--v-theme-primary), 0.20), transparent 60%),
+    radial-gradient(1000px 1000px at 110% -10%, rgba(var(--v-theme-accent), 0.18), transparent 55%),
+    radial-gradient(800px 800px at 50% 120%, rgba(var(--v-theme-secondary), 0.16), transparent 60%),
+    repeating-linear-gradient(0deg, transparent, transparent 24px, rgba(var(--v-theme-on-surface), 0.10) 25px),
+    repeating-linear-gradient(90deg, transparent, transparent 24px, rgba(var(--v-theme-on-surface), 0.10) 25px);
+}
+
+/* Decorative angle sheen for portfolio feel */
+.hero-section::after {
+  content: '';
+  position: absolute;
+  top: -30%;
+  right: -20%;
+  width: 60%;
+  height: 160%;
+  background: radial-gradient(closest-side, rgba(var(--v-theme-primary), 0.18), transparent 70%);
+  transform: rotate(25deg);
+  pointer-events: none;
+}
 </style>
