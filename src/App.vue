@@ -264,7 +264,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { computed, ref } from 'vue'
 import { useTheme } from 'vuetify'
 
 // About section text with explicit newlines for pre-line rendering
@@ -737,6 +737,14 @@ const careers = [
 // =============================================================
 
 const projects = [
+  {
+    title: 'todo',
+    stack: 'React Ts, Spring Jpa, Querydsl, Vercel, Koyeb, Supabase',
+    desc: '필자가 매일 강의를 들어서 안들었던 날짜 체크하는 용도로 만듬',
+    image: '/assets/img/todo.png',
+    demo: 'https://frontend-todo-dusky-delta.vercel.app',
+    repo: 'https://github.com/aamoos/frontend-todo'
+  },
   {
     title: 'weather',
     stack: 'Vue 3 · Vuetify · TypeScript · OpenWeather · Leaflet',
