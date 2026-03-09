@@ -351,7 +351,22 @@ const experienceCards = [
 const careers = [
   {
     company: '오픈메이트',
-    period: '2025.09 ~ 진행중',
+    period: '2025.10 ~ 2025.12',
+    title: '경찰청 국유재산 정보시스템',
+    description: '경찰청 국유재산을 관리 할수있는 사이트',
+    bullets: [
+      '재산취득 > 기부채납 메뉴 개발',
+      '재산처분 > 양여, 멸실 메뉴 개발',
+      '재산관리 > 사용승인 메뉴 개발',
+      '나의할일 > 국유재산 신규 등록 개발',
+      '기금사업관리 > raonk 멀티업로드, 다운로드 개발',
+      '시설사업관리 > raonk 멀티업로드, 다운로드 개발',
+    ],
+    stack: 'Spring · 전자정부프레임워크 · Jsp · Jquery · Tibero · Postgresql ·Toast-Ui-grid'
+  },
+  {
+    company: '오픈메이트',
+    period: '2025.09 ~ 2025.10',
     title: '지역 모니터링 서비스',
     description: 'AI 분석 모델이 상권을 분석한 결과를 지도에 시각화하여 보여주는 사이트',
     bullets: [
@@ -537,7 +552,10 @@ const careers = [
       '파일 업로드 안정성 및 예외 처리 강화, 내부/외부망 보안 기준 준수',
       'GeoServer 업그레이드, OpenLayers 시각화 개선',
       '크로스 브라우징 이슈 해결, 스마트그늘막 오픈API MBR 필터 추가',
-      '성과: 지도 실패율 10%→1% 이하, 보안 점검 통과, 레이어 로딩 25%↑'
+      '성과: 지도 실패율 10%→1% 이하, 보안 점검 통과, 레이어 로딩 25%↑',
+      '서울시 sdot 공공데이터 최신 날짜 기준 api 10분마다 배치 돌아서 테이블 데이터 적재 개발',
+      '신용정보지표(동별 신용점수 평균, 월소득별 신용카드 이용금액, 대출 보유자 별 대출 평균잔액, 장기 연체자 비율) geoserver 이용해서 leaflet js 상권도 그리기 및 범례 개발',
+      '시설물데이터(유통시설, 문화여가시설, 공공기관, 영화관, 은행, 숙박업소, 의료기관, 교육기관, 지하철역, 버스정류장, 버스터미널) geoserver 이용해서 leaflet js point 그리기 및 범례 개발'
     ],
     stack: 'Spring MVC · MyBatis · PostgreSQL · JSP · JavaScript · jQuery · GeoServer · OpenLayers'
   },
