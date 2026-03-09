@@ -351,7 +351,7 @@ const experienceCards = [
 const careers = [
   {
     company: '오픈메이트',
-    period: '2025.10 ~ 2025.12',
+    period: '2025.10 ~ 진행중',
     title: '경찰청 국유재산 정보시스템',
     description: '경찰청 국유재산을 관리 할수있는 사이트',
     bullets: [
@@ -361,6 +361,7 @@ const careers = [
       '나의할일 > 국유재산 신규 등록 개발',
       '기금사업관리 > raonk 멀티업로드, 다운로드 개발',
       '시설사업관리 > raonk 멀티업로드, 다운로드 개발',
+      '고도화 안정화 및 시스템 개선사항 수정 반영'
     ],
     stack: 'Spring · 전자정부프레임워크 · Jsp · Jquery · Tibero · Postgresql ·Toast-Ui-grid'
   },
