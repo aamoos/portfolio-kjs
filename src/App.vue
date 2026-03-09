@@ -69,6 +69,7 @@
                     <v-chip class="mr-2 mb-2" color="primary" variant="flat">Jsp/Jquery</v-chip>
                     <v-chip class="mr-2 mb-2" color="primary" variant="flat">Thymeleaf</v-chip>
                     <v-chip class="mr-2 mb-2" color="primary" variant="flat">Vite</v-chip>
+                    <v-chip class="mr-2 mb-2" color="primary" variant="flat">React</v-chip>
                   </div>
                   <v-progress-linear color="primary" height="10" :model-value="90" rounded>
                     <template #default>{{ 90 }}%</template>
@@ -350,6 +351,16 @@ const experienceCards = [
 
 // ====== 경력: 기존 항목 모두 제거하고 단일 항목으로 교체 ======
 const careers = [
+  {
+    company: '오픈메이트',
+    period: '2026.03 ~ 진행중',
+    title: '오픈메이트 레거시 홈페이지 리팩토링',
+    description: 'jsp/jquery로 개발된 사이트 react/typescript로 리팩토링',
+    bullets: [
+      '전체 메뉴 홈페이지 react/typescript로 리팩토링'
+    ],
+    stack: 'React/Typescript, Vite'
+  },
   {
     company: '오픈메이트',
     period: '2025.10 ~ 진행중',
